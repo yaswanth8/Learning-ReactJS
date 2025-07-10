@@ -1,0 +1,195 @@
+React JS + TS 
+--------
+-> Meta -> 2013 -> FB , Insta
+-> Frontend library
+-> Web Application
+-> Single Page Application -> no page refresh -> index.html -> reception 
+-> Component Based Development -> re-usable ->
+    -> webpage -> html -> <div> <p> <img>
+	-> custom tags -> <Search/> -> html, CSS, JS -> Search.jsx -> Search.tsx 
+
+-> Angular, React , Vue JS 
+
+-> First Application -> Vite
+
+-> npm install vite@latest 
+-> project_name : 
+-> React JS with JavaScript
+-> cd first-app 
+-> npm install 
+-> npm run dev 
+
+-> Component based Development 
+------------------------------
+-> 1 Root Component -> App.jsx -> <App/> 
+
+-> html , css , JavaScript
+
+-> .jsx -> HTML(99%) + JS 
+-> .css -> styles
+
+Application Flow 
+-----------------
+-> npm run dev -> package.json -> http://localhost:5173 -> index.html 
+
+-> index.css -> global css file of the project 
+-> App.css -> for App Component 
+
+Rules of React JS components 
+----------------------------
+-> Tag Name always starts with CAPS 
+-> must have an enclosing tag 
+-> must have a close tag too for each html tag 
+-> className="" instead of class=""
+
+
+.css -> background-color -> backgroundColor
+
+{} -> react Express -> dynamic data -> 
+
+-> Bootstrap Integration
+--------------------------
+-> npm install bootstrap@5.3.3
+
+-> configure Bootstrap library in main.jsx file 
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
+
+
+-> ReactBootstrap Integration
+-------------------------------
+-> npm install react-bootstrap@next bootstrap
+
+-> configure the React Bootstrap library in main.jsx file 
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
+import "../node_modules/react-bootstrap@next/dist/react-bootstrap.js";
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
+
+
+-> MaterialUI Integration 
+---------------------------
+-> npm install @mui/material @emotion/react @emotion/styled
+
+
+-> TailwindCSS Integration 
+----------------------------
+https://tailwindcss.com/docs/installation/using-vite
+
+-> npm install tailwindcss @tailwindcss/vite
+
+Props & State in React JS 
+-------------------------
+-> props -> passing data from one component to another 
+
+Ex: <img src=""> 
+
+-> state -> maintain data by the components its own.
+
+ex: useState() Hooks
+
+const count = 0; 
+
+const [count, setCount] = useState(0);
+
+
+Webstorm : Ctrl + D 
+
+VS Code : Ctrl + Alt + down arrow 
+
+const [] = useState(0);
+
+condition ? true part : false ;
+
+useEffect()
+-----------
+LifeCycle React Component
+
+useEffect(() => {
+	// componentDidMount
+	
+	return () => {
+		// componentWillUnmount
+	}
+}, [counter]);
+
+
+
+class based
+-----------
+componentDidMount() -> mounting
+componentDidUpdate() -> updating -> state changes
+componentWillUnmount() -> un-mounting 
+
+index.html -> body -> 
+
+
+Server Connections using React JS 
+---------------------------------
+-> npm install axios 
+
+email id in Wp group, grant access
+
+import axios from "axios";
+
+export class MealService{
+    static serverUrl = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
+
+    static getMealsFromDB(mealName="Seafood"){
+        return axios.get(`${this.serverUrl}${mealName}`);
+    }
+}
+
+Component Interaction
+----------------------
+-> App (root) -> Module -> components -> child components  
+ 
+-> parent -> Child Component -> props 
+
+Props Drilling vs Context API useContext()
+-----------------------------
+
+
+useReducer()
+------------
+let a = 10;
+
+const [a, setA] = useState(10);
+
+const [state, setState] = useState(initialValue);
+
+-> actions -> INCR, DECR
+
+const [state, dispatch] = useReducer(reducer,initialValue);
+
+reducer => function(action, initialState){
+	...
+}
+
+useState(), useEffect(), useReducer(), useContext()
+
+React JS routing + Navigation 
+-----------------------------
+-> npm install react-router-dom 
+-> SPA -> Single Page Application -> index.html page -> body -> components 
+-> never have page refresh 
+-> to read the url params -> useParams() 
+-> programatic redirection -> useNavigate()
+
+-> Task Manager Application / CRUD application using React 
+---------------------------------
+-> json-server -> db.json 
+-> create a server folder
+-> npm init --yes -> package.json 
+-> npm install json-server 
+
+-> postman / Insomnia 
+----------------------
+GET All Tasks -> GET -> http://localhost:9000/tasks/
+GET A Task -> GET -> http://localhost:9000/tasks/:taskId
+CREATE a Task -> POST -> http://localhost:9000/tasks
+UPDATE a Task -> PUT -> http://localhost:9000/tasks/:taskId 
+DELETE a Task -> DELETE -> http://localhost:9000/tasks/:taskId 
+
+
+to start Client first-app -> npm install -> npm run dev 
+to start server server -> npm install -> npm start 
