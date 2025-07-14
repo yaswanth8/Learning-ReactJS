@@ -1,12 +1,9 @@
 import React from "react";
 
-const Welcome = () => {
-
- 
+const ShoppingCart = () => {
     return(
         <>
-    Welcome
         </>
     )
-};
-export default Welcome;
+}
+export default ShoppingCart;

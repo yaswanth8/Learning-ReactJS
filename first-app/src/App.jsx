@@ -1,17 +1,31 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from 'react'
 import './App.css'
-import Welcome from './components/Welcome'
+import Greet from './components/Greet';
+import Counter from './components/Counter';
+import Product from './components/Product';
 
 function App() {
-  
+
+  const emp={
+    name:"John",
+    age:30,
+    city:"New York"
+  };
+
+  const greet = () => {
+    alert("Hello, Welcome to ReactJS");
+  };
 
   return (
     <>
-      <h1>Welcome to React</h1> 
-      <Welcome name="Jhon" age="30"/>
-     <Welcome name="Wilson"/>
+
+      <h1>Welcome to React + Tailwind CSS</h1> 
+
+      {/* <Product/> */}
+      <Greet employee={emp} greet={greet}/>
+      <Counter/>
+    
     </>
   )
 }
