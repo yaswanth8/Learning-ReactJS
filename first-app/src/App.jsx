@@ -3,7 +3,7 @@ import React from 'react'
 import './App.css'
 import Greet from './components/Greet';
 import Counter from './components/Counter';
-import Product from './components/Product';
+
 
 function App() {
 
