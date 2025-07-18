@@ -1,7 +1,7 @@
 
 import './App.css'
-import Registration from './components/Registration'
-import TextBbox from './components/TextBox'
+import UsersFromServer from './components/UsersFromServer'
+import Spinner from './ui/Spinner'
 
 
 
@@ -12,7 +12,10 @@ function App() {
   return (
     <>
 
-<Registration/>
+{/* <Registration/> */}
+
+{/* <Counter/> */}
+<UsersFromServer/>
    
     
     </>
