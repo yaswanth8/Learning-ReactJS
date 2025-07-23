@@ -1,8 +1,6 @@
 
 import './App.css'
-import UsersFromServer from './components/UsersFromServer'
-import Spinner from './ui/Spinner'
-
+import ParentComponent from './components/ParentComponent.jsx'
 
 
 function App() {
@@ -12,11 +10,7 @@ function App() {
   return (
     <>
 
-{/* <Registration/> */}
-
-{/* <Counter/> */}
-<UsersFromServer/>
-   
+<ParentComponent/>   
     
     </>
   )
