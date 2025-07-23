@@ -1,13 +1,11 @@
 import React, {useContext, useState} from 'react';
-import DisplayNoRecords from './DisplayNoRecords.jsx';
-import DisplayTable from './DisplayTable.jsx';
+import {CartService} from "../services/CartService.js";
+import DisplayNoRecords from "./DisplayNoRecords.jsx";
+import DisplayTable from "./Displaytable.jsx";
+import {ShoppingContext} from "../context/ShoppingContext.jsx";
 
 const ShoppingCart = () => {
-
-    const {products}=useContext(ShoppingContext);
-
-
-
+    const {products} = useContext(ShoppingContext);
     return (
         <>
             <div className="bg-gray-100 p-10">

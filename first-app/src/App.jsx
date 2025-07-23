@@ -1,6 +1,7 @@
 
 import './App.css'
-import ParentComponent from './components/ParentComponent.jsx'
+import ShoppingProvider from './context/ShoppingContext.jsx'
+import ShoppingCart from './components/ShoppingCart.jsx'
 
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
   return (
     <>
 
-<ParentComponent/>   
+    <ShoppingProvider>
+      <ShoppingCart />
+    </ShoppingProvider>
     
     </>
   )
