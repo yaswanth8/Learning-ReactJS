@@ -1,10 +1,57 @@
-import React, { useContext } from "react";
+import React, {useContext, useEffect} from 'react';
+import {ShoppingContext} from "../context/ShoppingContext.jsx";
 
-const DisplayTable = ()=> {
+const ReducerShoppingCart = () => {
+    const {state, dispatch, actionTypes} = useContext(ShoppingContext);
 
-    const {products,incrQty,decrQty,calculateTotal,clickDeleteProduct}=useContext(ShoppingContext);
-    return (
-<table className="min-w-full  -gray-200">
+    useEffect(() => {
+        calculateTotal();
+    }, [state.products]);
+
+    const incrQty = (productId) => {
+        dispatch({
+            type: actionTypes.INCR_QTY,
+            payload: {
+                productId: productId,
+            },
+        })
+    };
+
+    const decrQty = (productId) => {
+        dispatch({
+            type: actionTypes.DECR_QTY,
+            payload: {
+                productId: productId,
+            },
+        })
+    };
+
+    const calculateTotal = () => {
+        dispatch({
+            type: actionTypes.CALCULATE_TOTAL,
+        })
+    };
+
+    const clickDeleteProduct = (productId) => {
+        dispatch({
+            type: actionTypes.DELETE_PRODUCT,
+            payload: {
+                productId: productId,
+            },
+        })
+    };
+
+    const displayNoRecords = () => {
+        return (
+            <div className="flex flex-col items-center justify-center">
+                <h3 className="text-red-500 text-sm">No Records Found</h3>
+            </div>
+        )
+    };
+
+    const displayProductsTable = () => {
+        return (
+            <table className="min-w-full  -gray-200">
                 <thead className="bg-gray-200">
                 <tr>
                     <th className="px-4 py-2 ">ID</th>
@@ -18,7 +65,7 @@ const DisplayTable = ()=> {
                 </thead>
                 <tbody>
                 {
-                    products.map((product) => (
+                    state.products.map((product) => (
                         <tr key={product.id} className="hover:bg-gray-100">
                             <td className="px-4 py-2  text-center">{product.id}</td>
                             <td className="px-4 py-2  text-center">
@@ -49,10 +96,25 @@ const DisplayTable = ()=> {
                 }
                 <tr>
                     <td colSpan={5}></td>
-                    <td>Grand Total : ${calculateTotal().toFixed(2)}</td>
+                    <td>Grand Total : ${state.total.toFixed(2)}</td>
                 </tr>
                 </tbody>
             </table>
+        )
+    };
+
+    return (
+        <>
+            <div className="bg-gray-100 p-10">
+                <div className="container mx-auto">
+                    <div className="overflow-x-auto bg-white shadow-md rounded-lg">
+                        {
+                            state.products.length === 0 ? displayNoRecords() : displayProductsTable()
+                        }
+                    </div>
+                </div>
+            </div>
+        </>
     )
 };
-export default DisplayTable;
+export default ReducerShoppingCart;
